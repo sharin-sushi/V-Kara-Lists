@@ -35,7 +35,7 @@ const MyPage = ({ data, isSignin }: Mypage) => {
   const vtubers = data?.vtubers_u_created || [] as ReceivedVtuber[];
   const movies = data?.vtubers_movies_u_created || [] as ReceivedMovie[];
   const karaokes = data?.vtubers_movies_karaokes_u_created || [] as ReceivedKaraoke[];
-  const [currentMovieId, setCurrentMovieId] = useState<string>("Bjsn-QpwmvU13584");
+  const [currentMovieId, setCurrentMovieId] = useState<string>("Bjsn-QpwmvU");
   const [start, setStart] = useState<number>((13584))
 
   const handleMovieClickYouTube = (url: string, start: number) => {
@@ -63,12 +63,11 @@ const MyPage = ({ data, isSignin }: Mypage) => {
 
   return (
     <Layout pageName={"MyPage"} isSignin={isSignin}>
-      <div className="flex flex-col max-w-[1000px] justify-ite">
-        <div className="flex mx-auto mt-6">
+      <div className='inline-block flex-col pt-1 items-center justify-center'>
+
+        <div className="flex justify-center mx-auto mt-6">
           <YouTubePlayer videoId={currentMovieId} start={start} />
         </div>
-
-
 
         {vtubers.length + movies.length + karaokes.length === 0 ? (
           <div id="feature"
